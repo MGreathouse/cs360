@@ -50,16 +50,19 @@
         stroe result: stores the result
 
 
-4.12)    
+4.12)    Assuming this is taking place in the LC-3, fetch gets the instruction and then sets the program counter to the next instruction location which the ADD?LDR/JMP instruction had a pointer to. The decode phase takes the instruction adn reads the first four bits to determine the type of instruction being used and form that determines what else is needed by determining which operators are in the remaining 12 bits. The it determines where each address required for the operation is located. Then the values needed at addresses indicated are obtained. The operation is then executed and the result stored. For ADD there is no need for evaulating the address and LDR does not need the execute phase.
 
 
-4.13)    
+4.13)    IA-32) Fetch = 100, Decode = 1, evaluate addresses = 1, fetch operands = 100, execute = 1, store results = 100, TOTAL = 303 cycles
+         LC-3) Fetch = 100, Decode = 1, evaluate addresses = 0 (ADD has no non-register operands), fetch operands = 1, execute = 1, store results = 1 (stored in a register), TOTAL = 104 cycles
 
 
-4.14)    
+4.14)    When JMP is executed, it will set the program counter to the value in R3 (x369C) so the next instruction will be whatever is stored in the MAR at x369C instead of whatever was going to be next.
 
 
-4.15)    
+4.15)    Nothing at this point since no instructions will be processes until something (external, so likely a user action) sets the RUN latch.
 
 
-4.16)    
+4.16)    a) 500,000,000 cycles/second
+         b) 62,500,000 instructions/second
+         c) 499,999,992 instructions/second starting at the first second. After that, the full 500,000,000 instructions could go through a second assuming this perfect world scenario occurs.
