@@ -1,0 +1,65 @@
+4.01)   Memory:             stores data and programs
+        Processing Unit:    processes information
+        Input:              what users use to enter information
+        Output:             how information is displayed for the user
+        Control Unit:       keeps everything doing what it should
+
+
+4.02)    Its reads the value in the MDR based on the MAR it is interacting with and then stores anything it is going to keep working on in the register because of the inneficiency of reading and writing data to memory.
+
+
+4.03)    the program counter actual points to the location in memory that contains the next instruction
+
+
+4.04)    The word length is size of the data chunks that get processed by the processsing unit and the size of the word length dtermines how much data can be processed at once as well as how much memory can be used by the machine. No, at least as long as what is being processed cannot be broken down into a small enough size to fit within the contraints of the lesser of the two. As long as it can, it would just take longer for the smaller of the two to calculate the information out as long as they performed the same number of calculations in the same ammount of time.
+
+
+4.05)    a) 3 - 0000 0000 0000 0000
+            6 - 1111 1110 1101 0011
+         b) 1) 7747, -4059
+            2) c
+            3) 0000 0110 1101 1001 1111 1110 1101 0011 (I think they need to be in reverse order like this to ake a single 32bit number, though no clue how to convert it to appear as a floating point number if I have to do more than this)
+            4) 0 - 7747
+               1 - 61477
+         c) Add r7 r1 r3
+         d) refers to r6 which is 1111 1110 1101 0011
+
+
+4.06)    The opcode and operands. The opcode is the operation that is going to be done and the the operands are the values and lcations that are going to be used in the operation.
+
+
+4.07)    -32768 to 32767
+
+
+4.08)    a) 8 bit
+         b) 7 bit
+         c) 3 bit
+
+
+4.09)    It sets the program counter to the next instruction's address
+
+
+4.10)    This question is unclear
+
+
+4.11)    fetch, decode, evaluate address, fetch operands, execute, store result
+        fetch: gets instruction and sets program encounter to next instruction
+        decode: figure out what the indtruction does
+        evaluate address: finds memory locations needed to complete the instruction
+        fetch operands: gets operands to omplete the instruction
+        stroe result: stores the result
+
+
+4.12)    
+
+
+4.13)    
+
+
+4.14)    
+
+
+4.15)    
+
+
+4.16)    
