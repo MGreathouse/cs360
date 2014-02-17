@@ -1,0 +1,107 @@
+2.02)   4 bits for each of the 26 to be distinguishable (believe a would be 0000 z would be 1101)
+        5 bits to include upper and lower case (with A being 01110 and Z being 110011 if I added correctly)
+
+2.03)   a) 10 bits
+        b) 112 students
+
+2.04)   2 to the (n-1) power 
+
+2.05)   1's Compliment:     00111   11000
+        Signed Magnitude:   00111   10111
+        2's Compliment:     00111   11001
+
+2.06)   100000
+
+2.10)   a)  -6
+        b)  90
+        c)  -2
+        d)  14,803
+
+2.11)   a)  01100110
+        b)  01000000
+        c)  00100001
+        d)  10000000
+        e)  01111111
+
+2.12)   That it is even - unless this is a trick question, this question tells you the answer and then asks you what it just said...
+
+2.13)   a)  10000010
+        b)  00011001
+        c)  11111000
+        d)  00000001
+
+2.14)   a)  1100
+        b)  1010
+        c)  1111
+        d)  1011
+        e)  10000
+
+2.17)   a)  1100        -4
+        b)  01011000    88      <-- I am supposed to preserve width of the largest entered number, right?
+        c)  1011        -5
+        d)  11          -1
+
+2.18)   a)  1100        12
+        b)  01011000    88
+        c)  1011        11
+        d)  11           3
+
+2.19)   11100101
+        1111111111100101
+        11111111111111111111111111100101
+        No matter how many bits are added, the leading number will be replicated when the width of the number is increased. This means positive numbers stay positive and negative numbers stay negative and do not have alterations to the value of the number itself.
+
+2.20)   a)  No:  1111           -1              (-4 + 3)
+        b)  Yes: 1)0000         0               (-4 + 4)
+        c)  Yes: [1]000         -8              (7 + 1)         <-- the 1st bit was for the sign and the math was a possitive plus a possitive number which should be a third positive number. However, trnaslated from 2's complement it turns negative due to overflow
+        d)  Yes: 1)0111         7               (-8 - 1)        <-- same as in c, the sign bit is messed up by this one since it needs a 5th bit to properly represent the answer
+        e)  Yes: 1)0000         0               (-7 + 7)        <-- this one works out to a proper answer because of overflow
+
+2.21)   When the sum is too large or too small to be represented by the available bits or if a negative and a positive number are added together to make zero.
+
+2.30)   a)  01010111
+        b)  100
+        c)  10100000
+        d)  00010100
+        e)  0000
+        f)  0000
+
+2.33)   a)  11010111
+        b)  111
+        c)  11110100
+        d)  10111111
+        e)  1101
+        f)  1101
+
+2.34)   a)  0111
+        b)  0111
+        c)  1101
+        d)  0110
+
+2.35)   It is being used to indicate that the corresponding machine is free without affecting the display of whether or not other machines are also available.
+
+2.36)   a)  00000000
+        b)  01000100 - OR
+        c)  00000000 - AND
+        d)  11111111 - OR
+        e)  My procedure is to multiply the BUSYNESS pattern by 2 five times and then do an And Match against 10000000
+
+2.39)   a)  0 10000000 11100000000000000000000
+        b)  1 10000100 10111010111000000000000
+        c)  0 10000000 10010010000111111011011
+        d)  0 10001110 11110100000000000000000
+
+2.40)   a)  2.0
+        b)  -17.0
+        c)  340282366920938463463374607431768211456     <-- I am so glad python is happy with numbers this big ~ 2^128 power would have been a pain to do by hand since every other calculator I have goes to scientific notation except one which humorously said infinite
+        d)  -3.125
+
+2.41)   a)  2^128
+        b)  22^-126
+
+2.42)   m is the 13th character of the alphabet, so the programmer is somehow viewing his math result as a character
+
+2.43)   a)  Hello!
+        b)  hELLO!
+        c)  Computers!
+        d)  LC-2

@@ -1,0 +1,69 @@
+3.01:              n-type   p-type
+        Gate = 1   closed   open
+        Gate = 0   open     closed
+
+3.02:   One wired and one not wired
+
+3.03:   4 (AND, NAND, OR, NOR) with 4 different combinations of input each (if that is important making it 16 total when combined)
+
+3.04:   From top to bottom, then left to right: wired, not wired, wired, not wired and will output 1 when both inputs are 0. Any other combination of inputs should come out as 0.
+
+3.05:   A   B   C   Out
+        1   1   1   0
+        1   1   0   0
+        1   0   1   0
+        1   0   0   1
+        0   1   1   0
+        0   1   0   1
+        0   0   1   0
+        0   0   0   1
+
+3.06:   A   B   C   D   Z
+        1   1   0   0   1
+        1   0   0   1   0
+        0   1   1   0   0
+        0   0   1   1   0
+
+3.07:   If only A or B is 1, the source of one input is grounded through the drain of the opposite input? I get the impression this is bad and it is the only thing in the diagram that seemed off.
+
+3.08:   Y is obviously the output. A would be the top-right and B and C could be either of the other two in the top as well as the bottom-most two leaving the middle one on the bottom to be A.
+
+3.09:   from top to bottom: 0, 0, 0, 1;     AND gates have the same input/output pattern as well
+
+3.10:   From top to bottom, 1, 0, 0, 0
+
+3.11:   
+
+3.12:   
+
+3.13:   
+
+3.14:   
+
+3.15:   
+
+3.16:   
+
+3.17:   
+
+3.18:   
+
+3.19:   
+
+3.20:   
+
+3.21:   
+
+3.22:   
+
+3.23:   
+
+3.24:   
+
+3.25:   
+
+3.26:   
+
+3.27:   
+
+3.28:   
