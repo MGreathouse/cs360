@@ -1,0 +1,40 @@
+; Program to determine whether a value at a memory location is odd or even and store the result
+; Then the program counts how many binary 1's are at the initial address and stores it at another location
+;
+; inputs:
+;   all inputs will be internal
+;
+; output:
+;   no output as output, but memory locations x3031 and x3032 will have values stored in them that are answers to the program
+;
+; register usage:
+;   R0: value in x3030
+;   R1: value to check against (starts at x1)
+;   R2: counter for second part
+;   R3: holds temproary junk values for second part to be checked against
+;
+; Memory Usage:
+;   x3030: holds starting value to test against
+;   x3031: holds x0 or x1 depending on whether x3030 is even or odd
+;   x3032: holds number of occurences of binary 1 in x3030
+;
+0011 0000 0000 0000 ; starting location set to x3000
+;
+; Initialization
+0010 000 0 0010 1111        ; set R0 to the value in x3030
+0001 001 001 1 00001        ; set R1 to x0001
+; R2 = x0000                ; set R2 to x0000
+;
+; Test R0 to see if it is odd or even
+0101 011 001 0 00 000       ; set R3 to R1 AND R0
+0011 011 0 0010 1101        ; store R3 into x3031
+;
+; Count the binary 1s in x3030
+0101 100 000 0 00 001       ; set R4 to R0 AND R1
+0000 010 0 0000 0001        ; jump an instruction to skip being counted if not positive
+0001 010 010 1 00001        ; Add 1 to counter, only triggered when R4 is positive
+0001 001 001 0 00 001       ; double the checker in R1, moves the 1 being checked over 1 spot
+0000 101 1 1111 1011        ; if not zero, jump back and go through loop again
+;
+; store the count
+0011 010 0 0010 1000        ; put the value in R2 into the memory location x3032
