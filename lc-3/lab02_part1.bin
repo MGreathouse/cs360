@@ -1,0 +1,38 @@
+; Program shift the bits in x3100 left by 
+;
+; inputs:
+;   all inputs will be internal in x3100 and x3101
+;
+; output:
+;   no output as output, but memory location x3102 will have values stored in them that are answer to the program
+;
+; register usage:
+;   R0: value in x3100
+;   R1: value in x3101
+;
+; Memory Usage:
+;   x3100: holds starting value to shift
+;   x3101: holds number of places to shift
+;   x3102: holds number of occurences of binary 1 in x3030
+;
+0011 0000 0000 0000 ; starting location set to x3000
+;
+; Initialization
+1010 000 000000001          ; set R0 to the value in x3100
+0000 111 000000001          ; branch over indirect load value
+0011 0001 0000 0000         ; points to x3100
+1010 001 000000001          ; set R1 to the value in x3101
+0000 111 000000001          ; branch over indirect load value
+0011 0001 0000 0001         ; points to x3101
+;
+; Loop adding R0 to itself and decrementing R1 each loop until R1 is zero
+0000 010 000000011          ; if zero, jumps out of loop
+0001 000 000 0 00 000       ; Adds R0 to itself and stores in place
+0001 001 001 1 11111        ; Adds -1 to R1 and stores it in place
+0000 100 111111101          ; If R1 is positive, go back up and shift again
+;
+; Store the value in x3101 and halts program
+1011 000 000000001          ; stores R0 in x3102
+0000 111 000000001          ; skips the storage location
+0011 0001 0000 0010         ; points to x3102
+1111 0000 0010 0101         ; halts program
