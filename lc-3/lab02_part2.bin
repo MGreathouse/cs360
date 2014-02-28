@@ -1,4 +1,4 @@
-; Program shift the bits in x3100 left by the number in the value at x3101
+; Program rotate the bits in x3100 left by the number in the value at x3101
 ;
 ; inputs:
 ;   all inputs will be internal in x3100 and x3101
@@ -9,6 +9,8 @@
 ; register usage:
 ;   R0: value in x3100
 ;   R1: value in x3101
+;   R3: value to add to R0 on rotate
+;   R4: x8000 <- Manually entered
 ;
 ; Memory Usage:
 ;   x3100: holds starting value to shift
@@ -26,10 +28,15 @@
 0011 0001 0000 0001         ; points to x3101
 ;
 ; Loop adding R0 to itself and decrementing R1 each loop until R1 is zero
-0000 010 000000011          ; if zero, jumps out of loop
+0000 010 000000011          ; if zero, jumps out of loop - just used
+0101 011 000 0 00 100       ; set R3 = R0 AND R4
+0000 010 000000011          ; if R3 is zero, skip three instructions
+0001 000 000 0 00 000       ; Adds R0 to itself and stores in place
+0001 000 000 1 00001        ; Adds 1 to R0
+0000 111 000000001          ; Skips one instruction
 0001 000 000 0 00 000       ; Adds R0 to itself and stores in place
 0001 001 001 1 11111        ; Adds -1 to R1 and stores it in place
-0000 001 111111101          ; If R1 is positive, go back up and shift again
+0000 001 111110110          ; If R1 is positive, go back up and shift again (-10)
 ;
 ; Store the value in x3101 and halts program
 1011 000 000000001          ; stores R0 in x3102

@@ -1,0 +1,51 @@
+; Program divdes two members in memory and stores the answer and the remainder in different memory locations
+;
+; inputs:
+;   all inputs will be internal in x3100 and x3101
+;
+; output:
+;   no output as output, but memory location x3102 will have values stored in them that are answer to the program
+;
+; register usage:
+;   R0: value in x3100
+;   R1: value in x3101
+;   R2: Integer value of division
+;   R3: modulus value of division
+;   R4: scratch equation area
+;
+; Memory Usage:
+;   x3100: holds first value
+;   x3101: holds second value
+;   x3102: holds integer answer
+;   x3103: holds remainder
+;
+0011 0000 0000 0000 ; starting location set to x3000
+;
+; Initialization
+1010 000 000000001          ; set R0 to the value in x3100
+0000 111 000000001          ; branch over indirect load value
+0011 0001 0000 0000         ; points to x3100
+1010 001 000000001          ; set R1 to the value in x3101
+0000 111 000000001          ; branch over indirect load value
+0011 0001 0000 0001         ; points to x3101
+1001 100 001 111111         ; inverts the divisor as first step of making it negative
+0001 100 100 1 00001        ; adds one finsihing making it negative
+;
+; Loop division until complete
+0001 000 000 0 00 100       ; adds R0 to negative divisor and stores in place
+0000 110 000000010          ; branch out of loop if zero or negative (+2)
+0001 010 010 1 00001        ; increment integer counter
+0000 111 111111100          ; jump to beginning of loop (-4)
+;
+; Do final calculations and prep for saving --------------------------------------------------- Broken somewhere here
+0001 011 011 1 11111        ; subract 1 from R3 as first part of making positive
+1001 011 011 111111         ; inverts value in R3 making the value positive or zero
+;
+; Store the value in x3101 and halts program
+1011 010 000000001          ; stores R2 in x3102
+0000 111 000000001          ; skips the storage location
+0011 0001 0000 0010         ; points to x3102
+1011 011 000000001          ; stores R3 in x3103
+0000 111 000000001          ; skips the storage location
+0011 0001 0000 0011         ; points to x3103
+1111 0000 0010 0101         ; halts program
