@@ -1,0 +1,53 @@
+; Program reverses the bits a stored value and stores it somewhere else
+;
+; inputs:
+;   all inputs will be internal in x3100
+;
+; output:
+;   no output as output, but memory location x3300 will have values stored in them that are answer to the program
+;
+; register usage:
+;   R0: value in x3100
+;   R1: x8000 (1000 0000 0000 0000) used to help reverse the value
+;   R2: #1 - used the shift the value
+;   R3: scratch value area
+;   R4: holds answer
+;
+; Memory Usage:
+;   x3100: holds value to be reversed
+;   x3300: holds answer
+;
+0011 0000 0000 0000 ; starting location set to x3000
+;
+; Initialization
+1010 000 000000001          ; set R0 to the value in x3100
+0000 111 000000001          ; branch over indirect load value
+0011 0001 0000 0000         ; points to x3100
+0010 001 000000001          ; set R1 to value in x3006
+0000 111 000000001          ; branch over indirect load value
+1000 0000 0000 0000         ; value x8000
+0010 010 000000001          ; set R2 to value in x300B
+0000 111 000000001          ; branch over indirect load value
+0000 0000 0000 0001         ; value x0001
+;
+; check to see if adding 1 or just shifting
+0101 011 000 0 00 010       ; Check to see if shifting and adding or not through and
+0000 010 000000101          ; skips adding section if zero
+;
+; shifting and adding
+0001 100 100 0 00 100       ; shift R4 left 1
+0001 100 100 1 00001        ; adds 1 to shifted value
+0001 010 010 0 00 010       ; shifts the shifter value over 1
+0000 010 000000101          ; skips non adding section and goes to store when done (+6)
+0000 101 111111001          ; starts loop over at initial check (-7)
+;
+; shifting and not adding
+0001 100 100 0 00 100       ; shift R4 left 1
+0001 010 010 0 00 010       ; shifts the shifter value over 1
+0000 101 111110110          ; starts loop over at initial check (-10)
+;
+; Store the value in x3300 and halts program
+1011 100 000000001          ; stores R4 in x3300
+0000 111 000000001          ; skips the storage location
+0011 0011 0000 0000         ; points to x3300
+1111 0000 0010 0101         ; halts program

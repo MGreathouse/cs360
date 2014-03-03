@@ -33,13 +33,14 @@
 ;
 ; Loop division until complete
 0001 000 000 0 00 100       ; adds R0 to negative divisor and stores in place
-0000 110 000000010          ; branch out of loop if zero or negative (+2)
+0000 100 000000011          ; branch out of loop if negative (+3)
+0000 010 000000100          ; branch out of loop if zero (+4)
 0001 010 010 1 00001        ; increment integer counter
-0000 111 111111100          ; jump to beginning of loop (-4)
+0000 111 111111011          ; jump to beginning of loop (-5)
 ;
-; Do final calculations and prep for saving --------------------------------------------------- Broken somewhere here
-0001 011 011 1 11111        ; subract 1 from R3 as first part of making positive
-1001 011 011 111111         ; inverts value in R3 making the value positive or zero
+; Do final calculations and prep for saving 
+0001 010 010 1 00001        ; increment integer counter
+0001 011 000 0 00 001       ; gives remainder if not 0
 ;
 ; Store the value in x3101 and halts program
 1011 010 000000001          ; stores R2 in x3102
