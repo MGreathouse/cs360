@@ -1,0 +1,80 @@
+7.1     xA7FE
+
+7.2     x4F08
+
+7.3     AND is an instruction, if it would compile it would likely lead to all sorts of errors for when an action should be done or if it was a location.
+
+7.4     TEST    x301F
+        FINISH  x3027
+        SAVE3   x3029
+        SAVE2   x302A
+
+7.5     a) It looks like it multiplies M0 and M1 and stores it in RESULT
+        b) x200C
+
+7.6     D   x3001
+        E   x3004
+        B   x3005
+        F   x3007
+        A   x300A
+        C   x300B
+
+        It adds all positive odd values less than given number together
+
+7.7     .ORIG   x3000
+        LD      R0, N0
+        AND     R4, R4, #0
+        ADD     R4, R4, #1
+        AND     R2, R2, #0
+
+LOOP    AND     R5, R0, R4
+        BRnz    SKIP
+        ADD     R2, R2, #1
+SKIP    ADD     R4, R4, R4
+        BRnp    LOOP
+
+        ADD     R1, R2, 0
+
+N0      .FILL   x3030
+
+7.8     R0: xA400
+        R1: xA401
+        R2: xA400
+        R3: xA402
+
+7.9     .END stops the assembler from going through anything after it whereas HALT actually stops the program since it gets turned into an instruction
+
+7.10    A is not a block set asside that can be used as storage ~ this would be caught when run
+
+7.11    Wait, how do we write an assembly program that is written in binary? We did an echo program with James, but that didn't need to be written in binary since we wrote it in assembly. For this are we basically just writing in it binary and in assembly?
+
+7.12    It checks to see if the first half of the word is identical tot he second half of the word
+
+7.13    In line 3 R1 is not already set, so it is either 0 if the machine was reset before loading the program or whatever it was before the program began
+        In line 8 there SUM is used as a label, but it is not defined
+
+7.15    Looks like it doubles the positive numbers
+
+7.16    It counts the number of odd and even numbers in the sequence
+
+7.17    No, each module has its own assembly table and it is all converted in a manner that makes it a non-issue
+
+7.18    LDR     R3, R1, #0
+        NOT     R3, R3
+        ADD     R3, R1, #1
+
+7.19    4 times, including the initial time
+
+7.20    The programmer that wrote b is brilliant for the simplicity that they used, though there is no halt so I'd go with the first program
+
+7.21    What? This is already assembly.
+        It counts how many of the values between(inlcusive) x4000 and x4009 that are negative and stores the answer at x5000
+
+7.23    ADD     R1, R1, #-1
+        LDR     R4, R1
+        ADD     R0, R0, #1
+        BRnzp   LOOP
+
+7.24    lines x3003 and x3004 need to be swapped. We need to check on the counter, not whatever random value is in R3.
+
+7.25    Breaks the assembler and unleashes the hounds of misery down upon the coder because they fat-fingered in an extra hex digit
