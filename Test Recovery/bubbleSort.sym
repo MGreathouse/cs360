@@ -1,9 +1,9 @@
 //Symbol Name		Page Address
 //----------------	------------
-//	BASE                    3024
-//	ESCAPE                  3023
+//	BASE                    3022
+//	ESCAPE                  3021
 //	LOOP                    3011
 //	NEXT                    3005
-//	PROCEED                 3019
+//	PROCEED                 3017
 //	SORT                    300D
 //	SWAP                    301C
