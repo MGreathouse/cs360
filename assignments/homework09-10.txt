@@ -1,0 +1,59 @@
+10.1    Last In First Out setup
+
+10.2    the 10.2 version requires all sorts of moving of everyting whenever you remove or add anything whereas 10.3 does not
+
+10.3    a) R1
+        b) R0
+        c) R3
+        d) R7
+
+10.4    PEEK    LD      R1, EMPTY
+                ADD     R2, R6, R1
+                BRz     UNDERFLOW
+                LDR     R0, R6, #0
+                RET
+        EMPTY   .FILL   xC000
+Need to make sure that it isn't checking against the value right before the list
+
+10.5    I would not check it in assembly, I'd let whatever languyage I am using use its own implementation to do it for me and just call pop or push as needed
+
+10.6    Wouldn't this just be adding and subtracting two to R6 based off the example in the book instead of one?
+
+10.7    This would require setting up a memory address to hold whatever value you want to check against, and add/subtract that value from R6 based on the example in the book
+
+10.8    a) A, F
+        b) after PUSH J/ PUSH K
+        c) A, F, M
+
+10.9    a) BDECJKIHLG
+        b) PUSH Z, PUSH Y, POP Y, PUSH X, POP X, PUSH W, PUSH V, POP V, PUSH U, POP U, POP W, POP Z, PUSH T, PUSH S, POP S, PUSH R, POP R, POP T
+        c) 24:  4 1 2 3
+                4 1 3 2
+                4 2 3 1
+                4 2 1 3
+                4 3 1 2
+                4 3 2 1
+                1 2 3 4 
+                1 3 2 4 
+                2 3 1 4 
+                2 1 3 4 
+                3 1 2 4 
+                3 2 1 4 
+                1 2 4 3 
+                1 3 4 2 
+                2 3 4 1 
+                2 1 4 3 
+                3 1 4 2 
+                3 2 4 1 
+                1 4 2 3 
+                1 4 3 2 
+                2 4 3 1 
+                2 4 1 3 
+                3 4 1 2 
+                3 4 2 1 
+
+10.10   If the nzp were zero and the last action you did before returning was to add two positive numbers together, it would return as positive
+
+10.11   10.2.3 has no references to these memory addresses, but those addreses are TRAPS
+
+10.12   There is no example in 10.2.3, these questions have always been a little whacked, but they are definitely talking about imaginary crap right now while before I was simply convinced I was not comprehending it very well. It is as if the author did not update the questions after updating the text for the second edition. I feel my grasp on the subject matter is tenuous enough that this kind of crap is not acceptable. 10.2.3 is a sectiion that contains an explanation of what the damn pictures are doing and we are being asked questions about how a picture is coded with references to ono-existant memory addresses in the image or explanation like in the last question? This is complete and utter bullshit and I have seen random crap pop in throughout the whole book and dismissed it all as my failure to fully understand it since most of the surrounding stuff made some sort of sense. What am I supposed to do, draw pictures on this and pretend that it makes sense since it is so abstracted?
