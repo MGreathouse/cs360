@@ -1,0 +1,70 @@
+9.1     It is a safer, platform defined and already figured out way to go about achieving the same goal that gets rid of needing to figure out the guts and innards to do something such as keyboard input.
+
+9.2     a) 256, only 256 can be found within 8 bits.
+        b) RET will reset the values that were when the subroutine was called, branching out would not reset all of this and if another subroutine were to be called that original data may be lost
+        c) 5
+
+9.3     a) something outside of the machine, namely the user powering it up
+        b) STI R0, MCR
+        c) LD R1, SaveR1
+        d) to the address after the location where the HALT was called
+
+9.4     a) 1111000000100001
+        b) x21
+        c) x3005
+        d) displays 'State!'
+
+9.5     FUNK if the first value is F, FUN if the first value is something to tell the program to display the following section (leaning toward FUN, but not entirely sure I understand this all)
+
+9.6     A = x41
+        Z = x5A
+        a = x61
+        z = 7A
+
+        take input and add negative A to it
+        if negative, halt
+        take input and add negative Z to it
+        if negative/zero, continue with that value (valid letter - get out of checks and process input in program)
+        take input and add negative a to it
+        if negative, halt
+        take input and add negative z to it
+        if positive, halt
+        take input and subtract x20 from it
+        return to normal processing with fixed value
+
+9.7     ? - this uses the stack stuff from the next chapter ~ issues could be with privilage mode stuff and I think that the right return needs to be used for stack stuff
+
+9.8     Stores 0 if the program is even, one if it is odd
+
+9.9     What is this machine busy thing it is talking about? I am not finding a reference int he chapter to it that makes any sense for everythig it wants to be coded.
+
+9.10    Not enough room there, it only has space for 256 traps so it has to jump somewhere else that has enough room for the code for all the traps. How could it be modified to more than 12 bits? It needs the first four to say it is a trap.
+
+9.11    The only issue I am seeing is that LEA is being used to go to load something that I think is outside of its range and the BUFFEr thing is set to set aside more values than the range LEA can jump across. If this is the issue, moving the BUFFER  block line down under the S_CHAR should fix it.
+
+9.12    Looks like it is reversed.
+
+9.13    It jumps to a subroutine in the subroutine - that kills the ability to jump back from the first
+
+9.14    I assume it allows the machine to be started back up and the state to be reset back to what it was before the halt
+
+9.15    a) TRAP x72
+        b) yes
+
+9.16    x25 is the halt trap and should not be used as a storage location, x30000 is too large of a value to be handled
+
+9.17    I am not understanding how the parts already there are meant to function (such as the .BLKW near the very end), and without knowing that am finding it exceedingly difficult to know where to start since it is doing unknown things
+
+9.18    After it displays, it need to add 5 to the value and store it in place for each letter. I am not sure how to get it to do that with what is there, but it lookes like it is missing th e+5 for sure.
+
+9.19    a) MASK8
+        b) HARDDISK
+        c) BRnzp END
+        d) MASK4
+        e) ETHERNET
+        f) BRnzp END
+        g) MASK2
+        h) PRINTER
+        i) BRnap END
+        j) CDROM
+        k) .HALT (?)
