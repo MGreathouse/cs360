@@ -1,0 +1,13 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	CHK_VAR2                4008
+//	MUL_DONE                401E
+//	MUL_LOOP                4013
+//	OVERFLOW                4018
+//	OVRFLW                  4025
+//	RESULT                  4024
+//	SIGN_FIX                401A
+//	VAR1_NEG                400C
+//	VAR2_NEG                4010
+//	VAR_1                   4022
+//	VAR_2                   4023

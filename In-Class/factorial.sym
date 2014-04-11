@@ -1,0 +1,20 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	ASCII_FIX               4012
+//	BAD_MSG                 4031
+//	BAD_VAL                 400F
+//	FACTORIAL               4007
+//	FACT_DISP               400B
+//	GET_MSG                 4014
+//	MUL                     4043
+//	MUL1_NEG                4050
+//	MUL2_NEG                4054
+//	MUL_DONE                4062
+//	MUL_LOOP                4057
+//	MUL_OSR1                4067
+//	MUL_OSR2                4068
+//	MUL_OSR3                4069
+//	MUL_VAR2                404C
+//	OVERFLOW                405C
+//	RESULT                  4013
+//	SIGN_FIX                405E
